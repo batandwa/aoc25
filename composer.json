@@ -1,0 +1,15 @@
+{
+    "name": "batandwa/aoc_25",
+    "authors": [
+        {
+            "name": "Batandwa Colani",
+            "email": "i@batandwa.me"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AOC25\\":"src/"
+        }
+    }
+}
