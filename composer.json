@@ -6,7 +6,9 @@
             "email": "i@batandwa.me"
         }
     ],
-    "require": {},
+    "require": {
+        "league/climate": "^3.2"
+    },
     "autoload": {
         "psr-4": {
             "AOC25\\":"src/"

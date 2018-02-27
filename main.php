@@ -51,4 +51,4 @@ while ($stepsRan < $targetSteps) {
     $stepsRan++;
 }
 
-print 'Diagonastic Checksum: ' . $currentStatus->getTape()->diagnosticChecksum() . "\n";
+print 'Diagnostic Checksum: ' . $currentStatus->getTape()->diagnosticChecksum() . "\n";
