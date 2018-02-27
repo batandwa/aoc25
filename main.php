@@ -23,13 +23,14 @@ F011A
 F111E
 DAT;
 
-
 $stateCollection = (new AOC25\InputParser($input))->build();
 
 $stepsRan = 0;
 $targetSteps = 12399302;
-//$targetSteps = 6;
 $currentStatus = new AOC25\CurrentStatus(new AOC25\Tape(), 0, $stateCollection['A']);
+
+$climate = new League\CLImate\CLImate;
+$progress = $climate->progress()->total($targetSteps);
 
 while ($stepsRan < $targetSteps) {
     foreach ($stateCollection as $state) {
@@ -43,12 +44,11 @@ while ($stepsRan < $targetSteps) {
             break;
         }
 
-        if($stepsRan % 10000 === 0) {
-            print '.';
+        if($stepsRan % 1000 === 0) {
+            $progress->current($stepsRan);
         }
     }
     $stepsRan++;
 }
 
-//print $currentStatus->getTape()->toString();
 print 'Diagonastic Checksum: ' . $currentStatus->getTape()->diagnosticChecksum() . "\n";
