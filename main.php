@@ -78,10 +78,18 @@ class Tape {
     }
 
     public function toString(): string {
-        $output = $this->slots;
-        ksort($output);
-        $output = array_map(function($val) { return $val ? '1' : '0'; }, $output);
-        return implode(' ', $output);
+        $slots = $this->slots;
+        ksort($slots);
+        $slots = array_map(function($val) { return $val ? '1' : '0'; }, $slots);
+        $keys = array_map(function($val) {
+            return str_pad($val, 3, ' ', STR_PAD_LEFT);
+        }, array_keys($slots));
+        $values = array_map(function($val) {
+            return str_pad($val, 3, ' ', STR_PAD_LEFT);
+        }, $slots);
+
+        $output = "\n" . implode(' ', $keys) . "\n" . implode(' ', $values) . "\n";
+        return $output;
     }
 
     public function writeAt(int $position, bool $getWrite): void {
@@ -133,7 +141,6 @@ class CurrentStatus {
                 break;
             }
         }
-//        $this->state = $condition->getNextState();
         $this->position += $condition->getDirection();
     }
 }
