@@ -3,13 +3,6 @@ require_once('vendor/autoload.php');
 
 $input = <<<DAT
 A011B
-A100B
-B010A
-B111A
-DAT;
-
-$input = <<<DAT
-A011B
 A101C
 B000A
 B101D
